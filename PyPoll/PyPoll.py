@@ -1,7 +1,7 @@
 import os 
 import csv
 
-election_csv = os.path.join("..", "Resources", "election_data.csv")
+election_csv = os.path.join("Resources", "election_data.csv")
 
 candidates = []
 all_candidates = []
@@ -34,8 +34,8 @@ print("----------------------\n")
 print("Total votes: %d"%total) 
 print("----------------------\n")
 for i in candidates:
-    percentage = (data[i]/total) * 100
+    percentage = (float(data[i])/float(total)) * 100
     percent_list.append(percentage)
-    print("%s: %f(%d)" %(i, percentage, data[i]))
+    print("%s: %f(%d)" %(i, round(percentage), data[i]))
 print("----------------------\n")
 print("Winner:", candidates[percent_list.index(max(percent_list))])
